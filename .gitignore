@@ -1,5 +1,4 @@
 node_modules/
 dist/
-.vscode/
 coverage/
 solid-app-router-*.tgz
