@@ -1,0 +1,59 @@
+{
+  "name": "solid-auto-routes",
+  "description": "Universal auto routes for SolidJS",
+  "author": "Vinicius Borges",
+  "license": "MIT",
+  "version": "0.1.0",
+  "homepage": "https://github.com/viniciusborgeis/solid-auto-routes#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/viniciusborgeis/solid-auto-routes"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "solid": "./src/dist/index.jsx",
+      "default": "./src/dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc && rollup -c",
+    "prepublishOnly": "npm run build",
+    "test": "jest && npm run test:types",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage && npm run test:types",
+    "test:types": "tsc --project tsconfig.test.json",
+    "pretty": "prettier --write \"{src,test}/**/*.{ts,tsx}\""
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/jest": "^28.1.1",
+    "@types/node": "^17.0.40",
+    "babel-preset-solid": "^1.4.2",
+    "jest": "^28.1.0",
+    "prettier": "^2.6.2",
+    "rollup": "^2.75.5",
+    "rollup-plugin-terser": "^7.0.2",
+    "solid-app-router": "^0.3.3",
+    "solid-jest": "^0.2.0",
+    "solid-js": "^1.4.3",
+    "typescript": "^4.7.3",
+    "vite": "^2.9.9"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.4.3"
+  },
+  "jest": {
+    "preset": "solid-jest/preset/browser"
+  }
+}
