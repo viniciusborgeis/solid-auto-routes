@@ -9,15 +9,48 @@
 This plugin was designed for the convenience of working with the definition of automatic routes, in the same way as frameworks like Next.js Nuxt.js, just define a provider around your application and call a hook
 
 - [Get Started](#get-started)
+  - [Set Up Vite Configuration](#set-up-vite-config)
   - [Set Up the Router](#set-up-the-router)
 
-## Get started
+> After setup the plugin, all other configuration use the oficial [solid-app-router](https://github.com/solidjs/solid-app-router) library, and the configuration guide its goin the same of the official repository
 
-### Set Up the Router
+## Get started
 
 ```sh
 > npm i solid-app-router
 ```
+
+### Set Up Vite Config
+
+In your `vite.config.ts` import a module `AutoRoutes` from `solid-auto-routes` put inside vite plugins array and passing the configuration as parameter
+
+```jsx
+import { defineConfig } from "vite";
+import solidPlugin from "vite-plugin-solid";
+import AutoRoutes from "solid-auto-routes";
+
+const AutoRoutesConfig = {
+  pagePath: "./src/pages",
+  errorPath: "./src/errors",
+  homeComponentName: "home"
+};
+
+export default defineConfig({
+  plugins: [solidPlugin(), AutoRoutes(AutoRoutesConfig)],
+  build: {
+    target: "esnext",
+    polyfillDynamicImport: false
+  }
+});
+```
+
+**Configurations Parameters**
+
+`pagePath`\*: is the path for your pages components </br>
+`errorPath`: is the path for your pages error components, like 404.{tsx, jsx} </br>
+`homeComponentName`: is the name of your home component, default is index.{tsx, jsx}
+
+### Set Up the Router
 
 Install `solid-app-router`, then wrap your root component with the Router component:
 
@@ -38,7 +71,7 @@ render(
 
 This sets up a context so that we can display the routes anywhere in the app.
 
-In your `App` component import the Route hook from `app-auto-routes` and put inside your `App` element
+In your `App` component import the Route hook from `app-auto-routes` and put inside your `main` element
 
 ```tsx
 import { Route } from "solid-auto-routes";
@@ -55,113 +88,3 @@ const App = () => {
 
 export default App;
 ```
-
-> After setup the plugin, all other configuration use the oficial [solid-app-router](https://github.com/solidjs/solid-app-router) library
-
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
-
-These templates are meant to be used as is via the [degit](https://github.com/Rich-Harris/degit) utility.
-
-```bash
-# Javascript template
-$ npx degit solidjs/templates/js my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript template
-$ npx degit solidjs/templates/ts my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript minimal template
-$ npx degit solidjs/templates/ts-minimal my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript unocss template
-$ npx degit solidjs/templates/ts-unocss my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript windicss template
-$ npx degit solidjs/templates/ts-windicss my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript windicss template + basic file base routing
-$ npx degit solidjs/templates/ts-router my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript bootstrap (5) template
-$ npx degit solidjs/templates/ts-bootstrap my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript + tailwindcss template
-$ npx degit solidjs/templates/ts-tailwindcss my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript + sass template
-$ npx degit solidjs/templates/ts-sass my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Javascript template
-$ npx degit solidjs/templates/js-vitest my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript + vitest template
-$ npx degit solidjs/templates/ts-vitest my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-```bash
-# Typescript + uvu template
-$ npx degit solidjs/templates/ts-uvu my-solid-project
-$ cd my-solid-project
-$ npm install # or pnpm install or yarn install
-```
-
-## I don't see a template that matches my need?
-
-You wish there was a template with your favorite library?
-
-Feel free to make a pull request. Copy one of the template already available, tweak it, name it properly and make a PR. See [contributing](#contributing) below.
-
-## Contributing
-
-This project is managed with [pnpm](https://pnpm.io). You should [install it](https://pnpm.io/installation) first to test out your template or contribute to an existing one.
-
-You can create your own template and prefix it with `ts-` or `js-` and giving it a name that describe the purpose.
-
-To update all dependencies you can run:
-
-`pnpm up -Lri`
-
-## Troubleshooting
-
-It appears that Webstorm generate some weird triggers when saving a file. In order to prevent that you can follow [this thread](https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000154544-I-m-having-a-huge-problem-with-Webstorm-and-react-hot-loader-) and disable the **"Safe Write"** option in **"Settings | Appearance & Behavior | System Settings"**.
