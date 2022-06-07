@@ -2,7 +2,7 @@
   <img width="100%" src="https://raw.githubusercontent.com/viniciusborgeis/solid-auto-routes/main/assets/banner.png" alt="Solid Vite Templates">
 </p>
 
-# Solid Auto Routes using (using [vite](https://vitejs.dev/))
+# Solid Auto Routes (using [vite](https://vitejs.dev/))
 
 > This plugin is an abstraction of the official library [solid-app-router](https://github.com/solidjs/solid-app-router), and all dependencies of the official plugin are required for this plugin to work.
 
