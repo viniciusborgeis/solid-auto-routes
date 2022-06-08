@@ -3,7 +3,7 @@
   "description": "Universal auto routes for SolidJS",
   "author": "Vinicius Borges",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/viniciusborgeis/solid-auto-routes#readme",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
   "exports": {
     ".": {
       "solid": "./src/dist/index.jsx",
-      "default": "./src/dist/index.js"
+      "default": "./src/dist/index.js",
+      "main": "./src/dist/main.js"
     }
   },
   "files": [
