@@ -17,7 +17,7 @@ This plugin was designed for the convenience of working with the definition of a
 ## Get started
 
 ```sh
-> npm i solid-app-router
+> npm i solid-auto-routes
 ```
 
 ### Set Up Vite Config
