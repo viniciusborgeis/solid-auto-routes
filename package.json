@@ -3,7 +3,7 @@
   "description": "Universal auto routes for SolidJS",
   "author": "Vinicius Borges",
   "license": "MIT",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/viniciusborgeis/solid-auto-routes#readme",
   "repository": {
     "type": "git",
