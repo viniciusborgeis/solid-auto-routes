@@ -14,9 +14,9 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "solid": "./src/dist/index.jsx",
-      "default": "./src/dist/index.js",
-      "main": "./src/dist/main.js"
+      "solid": "./dist/index.jsx",
+      "default": "./dist/index.js",
+      "main": "./dist/main.js"
     }
   },
   "files": [
