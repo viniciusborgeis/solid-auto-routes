@@ -2,7 +2,7 @@ import AutoRoutesBuilder from "./routes";
 import { IConfig } from "./types";
 import { Plugin } from "vite";
 
-function AutoRoutes(config: IConfig): Plugin[] {
+export default function AutoRoutes(config: IConfig): Plugin[] {
   const plugins: Plugin[] = [];
   const autoRoutesBuilder = new AutoRoutesBuilder(config);
 
@@ -19,5 +19,3 @@ function AutoRoutes(config: IConfig): Plugin[] {
 
   return plugins;
 }
-
-export { AutoRoutes as default };
